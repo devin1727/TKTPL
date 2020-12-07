@@ -12,7 +12,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Toast;
-
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
@@ -28,6 +27,12 @@ public class MainActivity extends AppCompatActivity {
     private WifiManager wifiManager;
     private final int MY_PERMISSIONS_ACCESS_COARSE_LOCATION = 1;
     WifiReceiver receiverWifi;
+    static {
+        System.loadLibrary("native-lib");
+    }
+
+    public native String ConcString(String a);
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -55,6 +60,9 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
+
+        String text = ConcString("Devin");
+        Toast.makeText(this, text, Toast.LENGTH_SHORT).show();
 
         Button buttonSend = findViewById(R.id.sendReq);
         buttonSend.setOnClickListener(new View.OnClickListener() {
