@@ -13,16 +13,8 @@ public class MainActivity extends AppCompatActivity {
     private TextView txt;
 
     public void proc(){
-
-        btn1 =(Button)findViewById(R.id.btn1);
         txt = (TextView)findViewById(R.id.txt);
-
-        btn1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v){
-                txt.setText("Punten!");
-            }
-        });
+        txt.setText("Hello World!");
     }
 
     @Override
